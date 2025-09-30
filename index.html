@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Dakuta - Автоматизация меню для ресторанов</title>
+    <link rel="icon" type="image/png" href="https://thekeeperofsecret.github.io/dakuta-automation.github.io/content/cropped-rounded-in-photoretrica.png">
+</head>
+<body>
+    <div class="dakuta-app">
+        <!-- Animated Background -->
+        <div class="bg-elements">
+            <div class="floating-orb orb-1"></div>
+            <div class="floating-orb orb-2"></div>
+            <div class="floating-orb orb-3"></div>
+        </div>
+        
+        <!-- Particles Canvas -->
+        <canvas id="particles-canvas"></canvas>
+
+        <!-- Header -->
+        <header class="dakuta-header">
+            <div class="container header-container">
+                <a class="brand" href="#">
+                    <div class="brand-inner">
+                        <svg class="planet-svg" viewBox="0 0 200 200" role="img" aria-label="Dakuta logo">
+                            <defs>
+                                <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                                    <stop offset="0" stop-color="#7b61ff"/>
+                                    <stop offset="1" stop-color="#37d7ff"/>
+                                </linearGradient>
+                                <radialGradient id="g2" cx="30%" cy="30%" r="70%">
+                                    <stop offset="0" stop-color="#a89bff" stop-opacity="0.95"/>
+                                    <stop offset="1" stop-color="#443f6a" stop-opacity="0.12"/>
+                                </radialGradient>
+                            </defs>
+                            <circle cx="100" cy="90" r="44" fill="url(#g1)" />
+                            <circle cx="90" cy="80" r="44" fill="url(#g2)" opacity="0.4"/>
+                            <path id="ring-path" d="M20,100 C40,30 160,10 180,80 C170,95 120,120 80,125 C50,120 30,110 20,100Z"
+                                  fill="none" stroke="url(#g1)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+                        </svg>
+                        <img class="brand-raster" src="https://thekeeperofsecret.github.io/dakuta-automation.github.io/content/cropped-rounded-in-photoretrica.png"
+                             alt="Dakuta — логотип" />
+                    </div>
+                    <div class="brand-text">
+                        <div class="name">Dakuta</div>
+                        <div class="tag">автоматизация меню • сайты • парсинг</div>
+                    </div>
+                </a>
+
+                <nav class="top-nav">
+                    <a href="#services">Услуги</a>
+                    <a href="#cases">Кейсы</a>
+                    <a href="#reviews">Отзывы</a>
+                    <a class="cta" id="open-contact">Заказать</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-left">
+                    <h1>Автоматизация меню и создание сайта-меню<br><span class="accent">для ресторанов и кафе</span></h1>
+                    <p class="lead">Я — Вадим (Dakuta). Настрою автосинхронизацию Excel → сайт, перенесу меню из изображения в рабочий онлайн-формат и сделаю аккуратный сайт-меню в стиле Яндекс.Бизнеса.</p>
+                    <div class="hero-ctas">
+                        <a class="btn btn-primary" id="hero-order">Получить консультацию</a>
+                        <a class="btn btn-outline" href="https://thekeeperofsecret.github.io/dakuta-automation.github.io/content/Договор-оферта.pdf" target="_blank" rel="noopener">Скачать оферту</a>
+                    </div>
+
+                    <ul class="features">
+                        <li><strong>Быстрая интеграция</strong> — Excel → Woo/сайт за один цикл.</li>
+                        <li><strong>Готовые лендинги меню</strong> — выглядят как карточка Яндекс.Бизнеса, но свои и гибкие.</li>
+                        <li><strong>Поддержка и cron</strong> — автоматическое обновление цен по графику.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-right">
+                    <div class="device-card">
+                        <img src="https://thekeeperofsecret.github.io/dakuta-automation.github.io/content/cropped-rounded-in-photoretrica.png" alt="Пример автоматизированного меню" />
+                        <div class="device-ribbon">Новый клиент? есть скидка</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-title">Услуги</h2>
+                <p class="section-sub">Полный спектр услуг по автоматизации меню для ресторанов, кафе и служб доставки</p>
+                <div class="services-grid">
+                    <article class="service-card fade-in">
+                        <div class="sc-head">
+                            <h3>Автоматизация WooCommerce</h3>
+                            <div class="sc-price">от 1000 ₽</div>
+                        </div>
+                        <p>Настройка автоматической синхронизации данных (товаров, цен, описаний) на существующем интернет-сайте.</p>
+                        <ul class="sc-list">
+                            <li>Тариф "Стандарт" (настройка + 1 обновление/мес)</li>
+                            <li>Тариф "Премиум" (до 10 обновлений/мес)</li>
+                            <li>Тариф "Все в одном" (передача скрипта)</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card fade-in">
+                        <div class="sc-head">
+                            <h3>Создание сайта-меню</h3>
+                            <div class="sc-price">от 1500 ₽</div>
+                        </div>
+                        <p>Разработка и создание нового одностраничного сайта-меню (лендинга) с сохранением визуального стиля.</p>
+                        <ul class="sc-list">
+                            <li>Тариф "Стандарт" (создание + 1 обновление/мес)</li>
+                            <li>Тариф "Премиум" (до 10 обновлений/мес)</li>
+                            <li>Тариф "Все в одном" (создание + обучение)</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card fade-in">
+                        <div class="sc-head">
+                            <h3>Перенос меню из картинки</h3>
+                            <div class="sc-price">от 6000 ₽</div>
+                        </div>
+                        <p>Перенос существующего меню из графического формата в текстовый формат с сохранением визуального стиля.</p>
+                        <ul class="sc-list">
+                            <li>Тариф "Стандарт" (перенос + 1 обновление/мес)</li>
+                            <li>Тариф "Премиум" (до 10 обновлений/мес)</li>
+                            <li>Тариф "Все в одном" (перенос + обучение)</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cases Section -->
+		<section id="cases" class="section">
+			<div class="container">
+				<h2 class="section-title">Кейсы</h2>
+				<p class="section-sub">Примеры успешных проектов по автоматизации меню для ресторанов и кафе</p>
+				<div class="cases-grid">
+					<figure class="case-item fade-in">
+						<div class="case-placeholder">
+							<div class="placeholder-icon">🍕</div>
+							<div class="placeholder-title">Пиццерия "Итальянский уголок"</div>
+							<div class="placeholder-desc">Автоматизация Excel → сайт</div>
+						</div>
+						<figcaption>Пиццерия "Итальянский уголок" - автоматизация меню</figcaption>
+					</figure>
+					<figure class="case-item fade-in">
+						<div class="case-placeholder">
+							<div class="placeholder-icon">🍣</div>
+							<div class="placeholder-title">Суши-бар "Сакура"</div>
+							<div class="placeholder-desc">Создание сайта-меню</div>
+						</div>
+						<figcaption>Суши-бар "Сакура" - сайт-меню с онлайн-заказом</figcaption>
+					</figure>
+					<figure class="case-item fade-in">
+						<div class="case-placeholder">
+							<div class="placeholder-icon">☕</div>
+							<div class="placeholder-title">Кофейня "Утренний эспрессо"</div>
+							<div class="placeholder-desc">Перенос меню из PDF</div>
+						</div>
+						<figcaption>Кофейня "Утренний эспрессо" - перенос меню из PDF</figcaption>
+					</figure>
+				</div>
+			</div>
+		</section>
+
+        <!-- Reviews Section -->
+		<section id="reviews" class="section">
+			<div class="container">
+				<h2 class="section-title">Отзывы клиентов</h2>
+				<p class="section-sub">Что говорят владельцы ресторанов о сотрудничестве</p>
+				<div class="reviews-grid">
+					<div class="review-card fade-in">
+						<p class="quote">Здесь мог бы быть ваш отзыв о автоматизации меню. Расскажите, как решение помогло вашему бизнесу сэкономить время и увеличить продажи.</p>
+						<div class="meta">— Ваше имя, владелец «Ваше заведение»</div>
+					</div>
+					<div class="review-card fade-in">
+						<p class="quote">Поделитесь впечатлениями о работе с Dakuta. Напишите о том, как автоматизация Excel → сайт упростила управление меню в вашем ресторане.</p>
+						<div class="meta">— Имя клиента, управляющий «Название кафе»</div>
+					</div>
+					<div class="review-card fade-in">
+						<p class="quote">Оставьте отзыв о создании сайта-меню. Расскажите, как современный лендинг помог привлечь новых клиентов и улучшить онлайн-присутствие.</p>
+						<div class="meta">— Владелец, основатель «Ваш бренд»</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+        <!-- Contact Modal -->
+        <div id="dakuta-modal" class="dakuta-modal" aria-hidden="true" role="dialog" aria-modal="true">
+            <div class="modal-panel">
+                <button class="modal-close" id="modal-close" aria-label="Закрыть">×</button>
+                <h3>Оставить заявку</h3>
+                <p class="modal-sub">Коротко опиши задачу и прикрепи ссылку/файл — я отвечу в рабочее время.</p>
+
+				<form action="https://formsubmit.co/dakuta.automate.marketing@gmail.com" method="POST" class="dakuta-form-wrapper">
+                    <!-- скрытые поля -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_subject" value="Новая заявка с сайта Dakuta">
+                    <input type="hidden" name="_autoresponse" value="Спасибо за вашу заявку! Я свяжусь с вами в ближайшее время.">
+                    <input type="hidden" name="_to" value="dakuta.automate.marketing@gmail.com">
+                    
+                    <div class="row">
+                        <div class="form-column">
+                            <label>Имя *<input type="text" name="name" class="form-input" placeholder="Имя" required></label>
+                        </div>
+                        <div class="form-column">
+                            <label>Телефон *<input type="tel" name="phone" class="form-input" placeholder="+7 (___) ___-__-__" required></label>
+                        </div>
+                    </div>
+
+                    <div class="form-column">
+                        <label>Email<input type="email" name="email" class="form-input" placeholder="Email"></label>
+                    </div>
+
+                    <div class="form-column">
+                        <label>Услуга
+                            <select name="service" class="form-select" required>
+                                <option value="">Выберите услугу</option>
+                                <option value="Автоматизация">Автоматизация (Excel → сайт)</option>
+                                <option value="Сайт-меню">Сайт-меню / лендинг</option>
+                                <option value="Перенос меню">Перенос меню из картинки</option>
+                                <option value="Консультация">Консультация / другое</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="form-column">
+                        <label>Сообщение<textarea name="message" class="form-textarea" placeholder="Опишите вашу задачу" rows="4"></textarea></label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                        <button type="button" class="btn btn-outline form-cancel">Отмена</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="dakuta-footer">
+            <div class="container footer-grid">
+                <div class="f-left">
+                    <div class="brand-mini">
+                        <img src="https://thekeeperofsecret.github.io/dakuta-automation.github.io/content/cropped-rounded-in-photoretrica.png" alt="Dakuta">
+                        <div>
+                            <div class="brand-mini-name">Dakuta — Вадим</div>
+                            <div class="brand-mini-tag">автоматизация меню & парсинг</div>
+                        </div>
+                    </div>
+                    <p class="f-desc">Предлагаю быстрые решения для ресторанов — перенос меню, автоматическое обновление цен и лендинги-меню. Специализируюсь на автоматизации процессов для HoReCa.</p>
+                    <p class="f-contacts">Email: <a href="mailto:dakuta.automate.marketing@gmail.com">dakuta.automate.marketing@gmail.com</a> • Телеграм: <a href="tg:@dakutacanmore12">@dakutacanmore12</a></p>
+                </div>
+
+                <div class="f-right">
+                    <nav class="f-nav">
+                        <a href="#services">Услуги</a>
+                        <a href="#cases">Кейсы</a>
+                        <a href="#reviews">Отзывы</a>
+                        <a href="https://thekeeperofsecret.github.io/dakuta-automation.github.io/content/Договор-оферта.pdf" target="_blank">Оферта</a>
+                    </nav>
+                    <div class="f-credits">© 2025 Dakuta — Автоматизация меню для ресторанов. Все права защищены.</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
